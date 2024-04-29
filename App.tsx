@@ -8,9 +8,7 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -26,16 +24,14 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <View
-          style={[
-            styles.helloWorldView,
-            {
-              backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }
-          ]}>
-          <Text style={styles.helloWorldText}>
-            Hello hillel
-          </Text>
-        </View>
+        style={[
+          styles.helloWorldView,
+          {
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          },
+        ]}>
+        <Text style={styles.helloWorldText}>Hello hillel</Text>
+      </View>
     </SafeAreaView>
   );
 }
