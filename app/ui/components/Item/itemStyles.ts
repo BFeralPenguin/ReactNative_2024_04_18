@@ -1,6 +1,6 @@
 import {StyleSheet, TextStyle} from 'react-native';
 
-// TODO move to common
+// TODO move to theme.tsx
 const textSmall: TextStyle = {
   fontSize: 10,
 };
@@ -24,6 +24,11 @@ export const itemStyles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#0AA',
+    // TODO Color depending on mode
+    backgroundColor: '#871',
+    shadowColor: '#FFF',
+    // Note: Shadow does not work without bg color
+    elevation: 10,
   },
 
   imgContainer: {
@@ -47,7 +52,7 @@ export const itemStyles = StyleSheet.create({
     justifyContent: 'center',
     width: 30,
     height: 30,
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'burlywood',
     borderRadius: 30 / 2,
     borderWidth: 1,
     borderColor: 'grey',

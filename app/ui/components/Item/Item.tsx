@@ -3,10 +3,10 @@ import {Image, Text, View} from 'react-native';
 
 import {itemStyles} from './itemStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {strings} from '../../strings';
-// import image from '../../../../assets/1379208.svg';
+import {strings} from '../../../strings';
+import {assets} from '../../../assets';
 
-function Item(): React.JSX.Element {
+export function Item(): React.JSX.Element {
   const title = 'Title';
   const newPrice = 'New price';
   const oldPrice = 'Old price';
@@ -16,12 +16,7 @@ function Item(): React.JSX.Element {
     <>
       <View style={itemStyles.mainContainer}>
         <View style={itemStyles.imgContainer}>
-          <Image
-            style={itemStyles.img}
-            src="https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg"
-            // TODO FIXME local asset does not work
-            // source={image}
-          />
+          <Image style={itemStyles.img} source={assets.pizza} />
           <View style={itemStyles.imgIsNewBubbleContainer}>
             <Text style={itemStyles.imgIsNewText}>{strings.new}</Text>
           </View>
@@ -55,5 +50,3 @@ function Item(): React.JSX.Element {
     </>
   );
 }
-
-export default Item;
