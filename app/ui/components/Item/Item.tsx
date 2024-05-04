@@ -1,10 +1,10 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
-
-import {itemStyles} from './itemStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {strings} from '../../../strings';
-import {assets} from '../../../assets';
+
+import {assets} from '@assets';
+import {strings} from '@strings';
+import {itemStyles} from './itemStyles';
 
 export function Item(): React.JSX.Element {
   const title = 'Title';

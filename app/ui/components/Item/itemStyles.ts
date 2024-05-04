@@ -1,17 +1,5 @@
-import {StyleSheet, TextStyle} from 'react-native';
-
-// TODO move to theme.tsx
-const textSmall: TextStyle = {
-  fontSize: 10,
-};
-
-const textMedium: TextStyle = {
-  fontSize: 14,
-};
-
-const textLarge: TextStyle = {
-  fontSize: 16,
-};
+import {colors, text} from '@theme';
+import {StyleSheet} from 'react-native';
 
 export const itemStyles = StyleSheet.create({
   mainContainer: {
@@ -23,10 +11,10 @@ export const itemStyles = StyleSheet.create({
     borderCurve: 'circular',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#0AA',
+    borderColor: colors.outline,
     // TODO Color depending on mode
-    backgroundColor: '#871',
-    shadowColor: '#FFF',
+    backgroundColor: colors.primary,
+    shadowColor: colors.shadow,
     // Note: Shadow does not work without bg color
     elevation: 10,
   },
@@ -35,7 +23,7 @@ export const itemStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   img: {
-    backgroundColor: '#BA0',
+    backgroundColor: colors.primary,
     margin: 10,
     width: 70,
     height: 70,
@@ -52,13 +40,13 @@ export const itemStyles = StyleSheet.create({
     justifyContent: 'center',
     width: 30,
     height: 30,
-    backgroundColor: 'burlywood',
+    backgroundColor: colors.secondary,
     borderRadius: 30 / 2,
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: colors.outline,
   },
   imgIsNewText: {
-    ...textSmall,
+    ...text.small,
     fontWeight: 'bold',
     textTransform: 'uppercase',
   },
@@ -71,7 +59,7 @@ export const itemStyles = StyleSheet.create({
 
   titleContainer: {},
   title: {
-    ...textLarge,
+    ...text.large,
   },
 
   priceContainer: {
@@ -96,7 +84,7 @@ export const itemStyles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   addToFavoriteAction: {
-    ...textLarge,
+    ...text.large,
     color: 'red',
   },
 
@@ -109,6 +97,6 @@ export const itemStyles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   buyAction: {
-    ...textLarge,
+    ...text.large,
   },
 });
