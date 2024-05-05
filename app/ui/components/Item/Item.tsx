@@ -6,8 +6,17 @@ import assets from '@assets';
 import strings from '@strings';
 import {Pizza} from '@types';
 import {itemStyles} from './itemStyles';
+import {CustomPressable} from '../CustomPressable';
 
-export function Item({pizza}: {pizza: Pizza}): React.JSX.Element {
+export function Item({
+  pizza,
+  onAddToFavorite: onFavorite,
+  onBuy,
+}: {
+  pizza: Pizza;
+  onAddToFavorite: (value: boolean) => void;
+  onBuy: () => void;
+}): React.JSX.Element {
   return (
     <>
       <View style={itemStyles.mainContainer}>
@@ -39,19 +48,23 @@ export function Item({pizza}: {pizza: Pizza}): React.JSX.Element {
 
         <View style={itemStyles.actionsContainer}>
           <View style={itemStyles.addToFavoriteContainer}>
-            <Icon
-              name="heart"
-              style={[
-                itemStyles.addToFavoriteAction,
-                pizza.isFavorite
-                  ? itemStyles.addToFavoriteIsFavorite
-                  : itemStyles.addToFavoriteIsNotFavorite,
-              ]}></Icon>
+            <CustomPressable>
+              <Icon
+                name="heart"
+                style={[
+                  itemStyles.addToFavoriteAction,
+                  pizza.isFavorite
+                    ? itemStyles.addToFavoriteIsFavorite
+                    : itemStyles.addToFavoriteIsNotFavorite,
+                ]}></Icon>
+            </CustomPressable>
           </View>
-          <View style={itemStyles.buyContainer}>
-            <Text style={itemStyles.buyText}>{strings.buy}</Text>
-            <Icon name="shopping-cart" style={itemStyles.buyAction}></Icon>
-          </View>
+          <CustomPressable>
+            <View style={itemStyles.buyContainer}>
+              <Text style={itemStyles.buyText}>{strings.buy}</Text>
+              <Icon name="shopping-cart" style={itemStyles.buyAction}></Icon>
+            </View>
+          </CustomPressable>
         </View>
       </View>
     </>
