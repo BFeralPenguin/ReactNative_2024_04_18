@@ -1,6 +1,14 @@
 import {TextStyle} from 'react-native';
 
-export const text: {
+const colors = {
+  primary: '#871',
+  secondary: 'burlywood',
+  outline: '#0AA',
+  shadow: '#FFF',
+  red: 'red',
+};
+
+const text: {
   small: TextStyle;
   medium: TextStyle;
   large: TextStyle;
@@ -14,4 +22,9 @@ export const text: {
   large: {
     fontSize: 16,
   },
+};
+
+export default {
+  colors,
+  text,
 };

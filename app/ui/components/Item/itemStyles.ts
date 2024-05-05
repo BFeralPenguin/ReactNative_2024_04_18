@@ -1,4 +1,4 @@
-import {colors, text} from '@theme';
+import theme from '@theme';
 import {StyleSheet} from 'react-native';
 
 export const itemStyles = StyleSheet.create({
@@ -11,10 +11,10 @@ export const itemStyles = StyleSheet.create({
     borderCurve: 'circular',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: colors.outline,
+    borderColor: theme.colors.outline,
     // TODO Color depending on mode
-    backgroundColor: colors.primary,
-    shadowColor: colors.shadow,
+    backgroundColor: theme.colors.primary,
+    shadowColor: theme.colors.shadow,
     // Note: Shadow does not work without bg color
     elevation: 10,
   },
@@ -23,7 +23,7 @@ export const itemStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   img: {
-    backgroundColor: colors.primary,
+    backgroundColor: theme.colors.primary,
     margin: 10,
     width: 70,
     height: 70,
@@ -40,13 +40,13 @@ export const itemStyles = StyleSheet.create({
     justifyContent: 'center',
     width: 30,
     height: 30,
-    backgroundColor: colors.secondary,
+    backgroundColor: theme.colors.secondary,
     borderRadius: 30 / 2,
     borderWidth: 1,
-    borderColor: colors.outline,
+    borderColor: theme.colors.outline,
   },
   imgIsNewText: {
-    ...text.small,
+    ...theme.text.small,
     fontWeight: 'bold',
     textTransform: 'uppercase',
   },
@@ -59,7 +59,7 @@ export const itemStyles = StyleSheet.create({
 
   titleContainer: {},
   title: {
-    ...text.large,
+    ...theme.text.large,
   },
 
   priceContainer: {
@@ -84,8 +84,8 @@ export const itemStyles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   addToFavoriteAction: {
-    ...text.large,
-    color: 'red',
+    ...theme.text.large,
+    color: theme.colors.red,
   },
 
   buyContainer: {
@@ -97,6 +97,6 @@ export const itemStyles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   buyAction: {
-    ...text.large,
+    ...theme.text.large,
   },
 });
