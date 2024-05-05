@@ -85,7 +85,12 @@ export const itemStyles = StyleSheet.create({
   },
   addToFavoriteAction: {
     ...theme.text.large,
+  },
+  addToFavoriteIsFavorite: {
     color: theme.colors.red,
+  },
+  addToFavoriteIsNotFavorite: {
+    color: theme.colors.primary,
   },
 
   buyContainer: {

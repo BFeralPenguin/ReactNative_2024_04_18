@@ -4,6 +4,9 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
+      "@types": [
+        "app/types"
+      ],
       "@assets": [
         "app/assets"
       ],
@@ -12,6 +15,9 @@
       ],
       "@strings": [
         "app/strings"
+      ],
+      "@mocks": [
+        "app/mocks"
       ]
     }
   }

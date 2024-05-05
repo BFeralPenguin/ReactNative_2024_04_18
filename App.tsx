@@ -8,6 +8,7 @@ import {
   useColorScheme,
 } from 'react-native';
 
+import mocks from '@mocks';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Item} from './app/ui/components/Item';
 
@@ -32,7 +33,7 @@ function App(): React.JSX.Element {
           },
         ]}>
         <Text style={styles.helloWorldText}>Hello hillel</Text>
-        <Item></Item>
+        <Item pizza={mocks.pizzas[0]}></Item>
       </View>
     </SafeAreaView>
   );

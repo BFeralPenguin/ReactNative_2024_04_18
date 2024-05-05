@@ -1,0 +1,360 @@
+[
+  {
+    "id": "d5e0fb3f-c118-4e53-b72d-f68cb37f8b0a",
+    "title": "Classic Margherita",
+    "price": 9.99,
+    "description": "Fresh tomatoes, basil, mozzarella cheese, and olive oil on a thin crust.",
+    "isNew": false,
+    "isFavorite": true
+  },
+  {
+    "id": "ea1b6f71-7d39-4db9-bc5f-0b06d0cf5411",
+    "title": "Pepperoni Lover's",
+    "price": 11.99,
+    "oldPrice": 13.99,
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "9e7a1e95-6863-4e0d-a24b-3ff29c7e0469",
+    "title": "BBQ Chicken",
+    "price": 12.99,
+    "description": "Grilled chicken, BBQ sauce, red onions, and cilantro on a crispy crust.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "94c35f12-6eb1-42b2-84c8-32f4429ee926",
+    "title": "Vegetarian Supreme",
+    "price": 10.99,
+    "oldPrice": 12.99,
+    "description": "A medley of fresh vegetables including bell peppers, onions, mushrooms, olives, and tomatoes.",
+    "isNew": true,
+    "isFavorite": true
+  },
+  {
+    "id": "ecfe42e1-68eb-4756-82c1-92e5cc8dc160",
+    "title": "Meat Feast",
+    "price": 13.99,
+    "description": "A meat lover's delight with pepperoni, sausage, ham, and bacon on a traditional crust.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "617b5e8b-5b2a-44b7-96d8-87b4d186fb93",
+    "title": "Hawaiian",
+    "price": 11.49,
+    "description": "Savory ham, pineapple, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "29f6e045-c89c-40ad-8b82-0a9a111f5a05",
+    "title": "Supreme",
+    "price": 14.49,
+    "oldPrice": 16.99,
+    "description": "A combination of pepperoni, sausage, bell peppers, onions, mushrooms, and olives.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "5d11ff1d-5fa3-4df7-b6d1-019dcd50c6b9",
+    "title": "Mediterranean",
+    "price": 12.99,
+    "description": "Feta cheese, black olives, red onions, spinach, and sun-dried tomatoes.",
+    "isNew": true,
+    "isFavorite": false
+  },
+  {
+    "id": "a18e10c5-0e6f-4f88-8827-4001a59e27a3",
+    "title": "Buffalo Chicken",
+    "price": 13.49,
+    "description": "Spicy buffalo sauce, grilled chicken, red onions, and ranch drizzle.",
+    "isNew": false,
+    "isFavorite": true
+  },
+  {
+    "id": "97df674d-2d17-4398-a294-07612f8d2b60",
+    "title": "Veggie Delight",
+    "price": 11.99,
+    "oldPrice": 13.49,
+    "description": "An assortment of fresh vegetables including mushrooms, bell peppers, onions, and olives.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "57f96c5f-8b3d-4c8e-975d-7a8e1c9ad6a1",
+    "title": "Four Cheese",
+    "price": 12.49,
+    "description": "A blend of mozzarella, cheddar, provolone, and parmesan cheeses.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "21e16fd8-cd4b-47f1-bc1c-9e59a7646e01",
+    "title": "Barbecue Bacon",
+    "price": 13.99,
+    "description": "Crispy bacon, barbecue sauce, red onions, and cilantro.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "d5f3ebc1-4381-491f-b18e-318bfbb99da2",
+    "title": "Spinach Alfredo",
+    "price": 12.99,
+    "description": "Creamy alfredo sauce, fresh spinach, roasted garlic, and parmesan cheese.",
+    "isNew": true,
+    "isFavorite": true
+  },
+  {
+    "id": "41dd343b-d21e-4192-8b30-f4f238348b17",
+    "title": "Meatball Madness",
+    "price": 13.99,
+    "description": "Sliced meatballs, marinara sauce, mozzarella cheese, and Italian seasoning.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "bd4bb1dd-2ae3-4b6b-8cf9-fb04a9c3a2a6",
+    "title": "Garlic Chicken",
+    "price": 12.99,
+    "description": "Grilled chicken, roasted garlic, tomatoes, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "9ad30c9a-1d75-4f85-8e1c-efb889a2dd73",
+    "title": "Pesto Paradise",
+    "price": 13.49,
+    "description": "Basil pesto sauce, grilled chicken, roasted red peppers, and feta cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "4fd81a7e-10c8-4e17-b88b-dfb0d0374ba6",
+    "title": "Artichoke & Mushroom",
+    "price": 12.49,
+    "description": "Marinated artichoke hearts, mushrooms, spinach, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "5ec8d269-3b95-4bae-9a2c-0cb7e5c7f032",
+    "title": "Cheeseburger Pizza",
+    "price": 14.99,
+    "description": "Ground beef, cheddar cheese, pickles, onions, and special sauce.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "81f6b4e8-7435-4fb7-8b5b-1a9d0138b4a2",
+    "title": "Spicy Sausage",
+    "price": 12.99,
+    "description": "Spicy Italian sausage, roasted red peppers, onions, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "ce8aa8f2-4e22-4e44-8792-04b1a0fc1e9e",
+    "title": "White Pizza",
+    "price": 11.49,
+    "oldPrice": 14.49,
+    "description": "Alfredo sauce, garlic, spinach, and ricotta cheese.",
+    "isNew": true,
+    "isFavorite": true
+  },
+  {
+    "id": "2cc1267f-0f76-4d18-8d47-28fb9d185d51",
+    "title": "Margarita",
+    "price": 10.99,
+    "description": "Fresh tomatoes, basil, garlic, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "fe6d0eb6-17ff-43a6-bf1d-c52a3f8a0e57",
+    "title": "Italiano",
+    "price": 12.99,
+    "description": "Pepperoni, Italian sausage, red onions, bell peppers, and black olives.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "e7ff9c2d-f055-4dcb-97e2-67d5d8b26a51",
+    "title": "Seafood Delight",
+    "price": 14.99,
+    "description": "Shrimp, crab meat, garlic butter sauce, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "a68ed21b-f920-4eb3-89df-0bbef4cd5d79",
+    "title": "The Works",
+    "price": 15.99,
+    "description": "A pizza loaded with pepperoni, sausage, ham, bacon, mushrooms, onions, bell peppers, and olives.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "92cf99ac-0bbd-4c39-9e39-7b0a7be2e54d",
+    "title": "Chicken Alfredo",
+    "price": 13.49,
+    "description": "Grilled chicken, creamy alfredo sauce, spinach, and parmesan cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "609fb46a-5f71-496f-8742-0263829e7157",
+    "title": "Sicilian",
+    "price": 16.99,
+    "description": "A thick-crust pizza topped with marinara sauce, mozzarella cheese, and your choice of toppings.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "1a540fd1-6f42-4530-a9b7-346205b9e2d6",
+    "title": "Truffle Mushroom",
+    "price": 14.99,
+    "description": "Mushrooms, truffle oil, caramelized onions, and mozzarella cheese.",
+    "isNew": true,
+    "isFavorite": false
+  },
+  {
+    "id": "5be42a32-7464-493a-b55c-b780a2552b55",
+    "title": "Capricciosa",
+    "price": 13.99,
+    "description": "Artichokes, ham, mushrooms, olives, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "8e1d2f10-2c2a-4b10-b25c-ec19c6adad01",
+    "title": "Chicken Tikka Masala",
+    "price": 14.49,
+    "description": "Tender chicken tikka, masala sauce, red onions, and cilantro on a naan crust.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "a1d8900d-cdbd-47c6-920d-4da0a9d02fa0",
+    "title": "Stuffed Crust Supreme",
+    "price": 15.99,
+    "description": "A supreme pizza with a stuffed crust filled with mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "bc4d59ad-6f5c-45c6-b42e-7e59bfc3cb8f",
+    "title": "Philly Cheesesteak",
+    "price": 14.99,
+    "description": "Thinly sliced steak, onions, bell peppers, mushrooms, and provolone cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "37ed8f88-6d68-42b2-b8fb-4c733d6978a2",
+    "title": "Pulled Pork BBQ",
+    "price": 13.49,
+    "description": "Slow-cooked pulled pork, barbecue sauce, red onions, and cilantro.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "7d4d04c3-3f91-4823-86b9-43eaa30b548e",
+    "title": "Greek",
+    "price": 12.99,
+    "description": "Feta cheese, black olives, tomatoes, onions, and gyro meat.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "85a64aeb-0777-4e51-82cc-8c5841aef0d7",
+    "title": "Sausage & Mushroom",
+    "price": 11.99,
+    "description": "Italian sausage, mushrooms, marinara sauce, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "b85c5740-8933-44d5-b98b-cf2d26a9c5f3",
+    "title": "Buffalo Ranch Chicken",
+    "price": 13.99,
+    "description": "Spicy buffalo sauce, grilled chicken, red onions, ranch dressing, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "97a62b4b-1e91-4b2d-ae63-5c6aae05ee2e",
+    "title": "Bacon Spinach Alfredo",
+    "price": 14.49,
+    "description": "Crispy bacon, fresh spinach, alfredo sauce, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "09b08e7e-21b3-4bbd-a5d1-d7e8d2c6920f",
+    "title": "Taco Pizza",
+    "price": 12.99,
+    "oldPrice": 16.49,
+    "description": "Seasoned ground beef, cheddar cheese, lettuce, tomatoes, and crushed tortilla chips.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "9f51e5b0-e202-41b8-9950-d18c0f200c70",
+    "title": "Vegan Supreme",
+    "price": 11.99,
+    "description": "Vegan cheese, bell peppers, onions, mushrooms, black olives, and tomatoes.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "1098bb60-6e6a-4429-8407-670d29b0dbf2",
+    "title": "Chipotle Chicken",
+    "price": 13.49,
+    "description": "Grilled chicken, chipotle sauce, red onions, bell peppers, and cilantro.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "51e6b6e8-91b3-418f-b63e-30ed10a32a0a",
+    "title": "Philly Cheese Steak",
+    "price": 14.99,
+    "description": "Thinly sliced steak, green peppers, onions, mushrooms, and provolone cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "314c22b7-3c2a-4d21-8266-4e7b5cde1e19",
+    "title": "Buffalo Ranch",
+    "price": 12.99,
+    "description": "Spicy buffalo sauce, grilled chicken, ranch dressing, red onions, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "cc52799c-fa67-4b59-8364-5f225f192be9",
+    "title": "Chicken Bacon Ranch",
+    "price": 14.49,
+    "description": "Grilled chicken, crispy bacon, ranch dressing, red onions, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "9a10788e-2cbf-40b7-86dc-96f2a9e22f8a",
+    "title": "Chicken Fajita",
+    "price": 13.99,
+    "oldPrice": 14.49,
+    "description": "Grilled chicken, bell peppers, onions, fajita seasoning, and mozzarella cheese.",
+    "isNew": false,
+    "isFavorite": false
+  },
+  {
+    "id": "d4fc7ef8-8d6a-4775-8e3b-b116f50d9b20",
+    "title": "Meat Lover's",
+    "price": 15.49,
+    "description": "A hearty combination of pepperoni, sausage, ham, bacon, and beef.",
+    "isNew": false,
+    "isFavorite": false
+  }
+]

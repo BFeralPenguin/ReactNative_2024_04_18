@@ -1,6 +1,7 @@
 import {TextStyle} from 'react-native';
 
 const colors = {
+  // TODO black/white
   primary: '#871',
   secondary: 'burlywood',
   outline: '#0AA',
