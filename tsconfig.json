@@ -10,6 +10,9 @@
       "@assets": [
         "app/assets"
       ],
+      "@components/*": [
+        "app/ui/components/*"
+      ],
       "@theme": [
         "app/ui/theme"
       ],

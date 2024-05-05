@@ -8,9 +8,9 @@ import {
   useColorScheme,
 } from 'react-native';
 
-import mocks from '@mocks';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Item} from './app/ui/components/Item';
+import {ItemsList} from './app/ui/components/Item';
+import mocks from '@mocks';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -33,7 +33,7 @@ function App(): React.JSX.Element {
           },
         ]}>
         <Text style={styles.helloWorldText}>Hello hillel</Text>
-        <Item pizza={mocks.pizzas[0]}></Item>
+        <ItemsList pizzas={mocks.pizzas} />
       </View>
     </SafeAreaView>
   );

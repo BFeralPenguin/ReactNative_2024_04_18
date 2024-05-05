@@ -90,7 +90,7 @@ export const itemStyles = StyleSheet.create({
     color: theme.colors.red,
   },
   addToFavoriteIsNotFavorite: {
-    color: theme.colors.primary,
+    color: theme.colors.secondary,
   },
 
   buyContainer: {
@@ -103,5 +103,11 @@ export const itemStyles = StyleSheet.create({
   },
   buyAction: {
     ...theme.text.large,
+  },
+});
+
+export const itemListStyles = StyleSheet.create({
+  mainContainer: {
+    flexDirection: 'row',
   },
 });

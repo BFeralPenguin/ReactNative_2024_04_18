@@ -10,12 +10,12 @@ import {CustomPressable} from '../CustomPressable';
 
 export function Item({
   pizza,
-  onAddToFavorite: onFavorite,
+  onAddToFavorite,
   onBuy,
 }: {
   pizza: Pizza;
-  onAddToFavorite: (value: boolean) => void;
-  onBuy: () => void;
+  onAddToFavorite?: (value: boolean) => void;
+  onBuy?: () => void;
 }): React.JSX.Element {
   return (
     <>
@@ -48,7 +48,10 @@ export function Item({
 
         <View style={itemStyles.actionsContainer}>
           <View style={itemStyles.addToFavoriteContainer}>
-            <CustomPressable>
+            <CustomPressable
+              onPress={
+                onAddToFavorite && (_ => onAddToFavorite(!pizza.isFavorite))
+              }>
               <Icon
                 name="heart"
                 style={[
@@ -59,7 +62,7 @@ export function Item({
                 ]}></Icon>
             </CustomPressable>
           </View>
-          <CustomPressable>
+          <CustomPressable onPress={onBuy && (_ => onBuy())}>
             <View style={itemStyles.buyContainer}>
               <Text style={itemStyles.buyText}>{strings.buy}</Text>
               <Icon name="shopping-cart" style={itemStyles.buyAction}></Icon>
