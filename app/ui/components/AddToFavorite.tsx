@@ -1,8 +1,8 @@
-import theme from '@theme'
-import React from 'react'
-import { StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
-import { CustomPressable } from './CustomPressable'
+import theme from '@theme';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {CustomPressable} from './CustomPressable';
 
 export function AddToFavorite({
   isFavorite,
@@ -17,17 +17,18 @@ export function AddToFavorite({
         <Icon
           name="heart"
           style={[
-            addToFavoriteStyles.addToFavoriteAction,
+            styles.addToFavoriteAction,
             isFavorite
-              ? addToFavoriteStyles.addToFavoriteIsFavorite
-              : addToFavoriteStyles.addToFavoriteIsNotFavorite,
-          ]}/>
+              ? styles.addToFavoriteIsFavorite
+              : styles.addToFavoriteIsNotFavorite,
+          ]}
+        />
       </CustomPressable>
     </>
   );
 }
 
-export const addToFavoriteStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   addToFavoriteAction: {
     ...theme.text.large,
   },

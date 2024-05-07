@@ -113,7 +113,7 @@ export const itemListStyles = StyleSheet.create({
 });
 
 export const itemFilterStyles = StyleSheet.create({
-  mainContainer: {
+  mainFilterContainer: {
     width: '100%',
     height: 50,
     flexDirection: 'row',
@@ -125,7 +125,7 @@ export const itemFilterStyles = StyleSheet.create({
     borderWidth: 1,
   },
 
-  input: {
+  searchInput: {
     flex: 1,
     borderColor: theme.colors.outline,
     borderWidth: 1,
@@ -136,12 +136,11 @@ export const itemFilterStyles = StyleSheet.create({
     gap: 10,
   },
 
-  search: {
+  searchAction: {
     ...theme.text.large,
   },
 
   modalContainer: {
-    height: '100%',
     justifyContent: 'flex-end',
   },
 
@@ -150,5 +149,28 @@ export const itemFilterStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.colors.primary,
+    borderWidth: 1,
+    borderColor: 'white',
+  },
+
+  advancedFilterContainer: {
+    paddingHorizontal: 10,
+    width: '100%',
+  },
+
+  isNewModalContainer: {
+    justifyContent: 'flex-start',
+  },
+
+  isNewModalContent: {
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    padding: 10,
+    backgroundColor: theme.colors.primary,
+  },
+
+  isNewCheckboxContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

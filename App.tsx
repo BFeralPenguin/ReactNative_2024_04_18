@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {
   Platform,
   SafeAreaView,
@@ -9,13 +9,14 @@ import {
   useColorScheme,
 } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {ItemList} from './app/ui/components/Item';
 import mocks from '@mocks';
-import {ItemFilter} from './app/ui/components/Item';
+import {Pizza} from '@types';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {ItemFilter, ItemList} from './app/ui/components/Item';
 
 function App(): React.JSX.Element {
   const [filterText, setFilterText] = useState('');
+  const [filterByIsNew, setFilterByIsNew] = useState(false);
 
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -23,7 +24,24 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  console.log(`filterText: ${filterText}`);
+  // TODO Combine list/filter into separate component
+  const getFilterPredicate = useCallback<(pizza: Pizza) => boolean>(
+    pizza => {
+      let isOk = true;
+
+      if (filterText != '') {
+        isOk &&=
+          pizza.title.toLowerCase().includes(filterText) ||
+          pizza.description?.toLowerCase().includes(filterText) ||
+          false;
+      }
+
+      if (filterByIsNew) isOk &&= pizza.isNew;
+
+      return isOk;
+    },
+    [filterText, filterByIsNew],
+  );
 
   return (
     <SafeAreaView style={[styles.safeArea, backgroundStyle]}>
@@ -39,16 +57,11 @@ function App(): React.JSX.Element {
           },
         ]}>
         <Text style={styles.helloWorldText}>Hello hillel</Text>
-        <ItemFilter onFilterText={text => setFilterText(text.toLowerCase())} />
-        <ItemList
-          pizzas={mocks.pizzas.filter(
-            pizza =>
-              (filterText != '' &&
-                pizza.title.toLowerCase().includes(filterText)) ||
-              pizza.description?.toLowerCase().includes(filterText) ||
-              false,
-          )}
+        <ItemFilter
+          onFilterText={text => setFilterText(text.toLowerCase())}
+          onFilterByIsNew={setFilterByIsNew}
         />
+        <ItemList pizzas={mocks.pizzas.filter(getFilterPredicate)} />
       </View>
     </SafeAreaView>
   );
