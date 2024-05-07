@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Platform,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -9,8 +10,9 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {ItemsList} from './app/ui/components/Item';
+import {ItemList} from './app/ui/components/Item';
 import mocks from '@mocks';
+import {ItemFilter} from './app/ui/components/Item';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -20,7 +22,7 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={[styles.safeArea, backgroundStyle]}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
@@ -33,7 +35,8 @@ function App(): React.JSX.Element {
           },
         ]}>
         <Text style={styles.helloWorldText}>Hello hillel</Text>
-        <ItemsList pizzas={mocks.pizzas} />
+        <ItemFilter />
+        <ItemList pizzas={mocks.pizzas} />
       </View>
     </SafeAreaView>
   );
@@ -48,6 +51,9 @@ const styles = StyleSheet.create({
   helloWorldText: {
     fontSize: 24,
     fontWeight: '900',
+  },
+  safeArea: {
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 });
 

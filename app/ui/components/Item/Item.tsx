@@ -5,8 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import assets from '@assets';
 import strings from '@strings';
 import {Pizza} from '@types';
-import {itemStyles} from './itemStyles';
+import {AddToFavorite} from '../AddToFavorite';
 import {CustomPressable} from '../CustomPressable';
+import {itemStyles} from './itemStyles';
 
 export function Item({
   pizza,
@@ -48,19 +49,12 @@ export function Item({
 
         <View style={itemStyles.actionsContainer}>
           <View style={itemStyles.addToFavoriteContainer}>
-            <CustomPressable
-              onPress={
-                onAddToFavorite && (_ => onAddToFavorite(!pizza.isFavorite))
-              }>
-              <Icon
-                name="heart"
-                style={[
-                  itemStyles.addToFavoriteAction,
-                  pizza.isFavorite
-                    ? itemStyles.addToFavoriteIsFavorite
-                    : itemStyles.addToFavoriteIsNotFavorite,
-                ]}></Icon>
-            </CustomPressable>
+            <AddToFavorite
+              isFavorite={pizza.isFavorite}
+              onChange={
+                onAddToFavorite && (() => onAddToFavorite(!pizza.isFavorite))
+              }
+            />
           </View>
           <CustomPressable onPress={onBuy && (_ => onBuy())}>
             <View style={itemStyles.buyContainer}>

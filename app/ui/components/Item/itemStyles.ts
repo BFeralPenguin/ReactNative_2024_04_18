@@ -111,3 +111,24 @@ export const itemListStyles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
+
+export const itemFilterStyles = StyleSheet.create({
+  mainContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    borderColor: 'white',
+    borderWidth: 1,
+  },
+
+  modalContainer: {
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  modalContent: {
+    height: '30%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.colors.primary,
+  },
+});

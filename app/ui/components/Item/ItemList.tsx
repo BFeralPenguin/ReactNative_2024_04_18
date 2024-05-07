@@ -5,7 +5,7 @@ import {Pizza} from '@types';
 import {Item} from './Item';
 import {itemListStyles} from './itemStyles';
 
-export function ItemsList({
+export function ItemList({
   pizzas,
   onAddToFavorite,
   onBuy,
