@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Platform,
   SafeAreaView,
@@ -15,11 +15,15 @@ import mocks from '@mocks';
 import {ItemFilter} from './app/ui/components/Item';
 
 function App(): React.JSX.Element {
+  const [filterText, setFilterText] = useState('');
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  console.log(`filterText: ${filterText}`);
 
   return (
     <SafeAreaView style={[styles.safeArea, backgroundStyle]}>
@@ -35,8 +39,16 @@ function App(): React.JSX.Element {
           },
         ]}>
         <Text style={styles.helloWorldText}>Hello hillel</Text>
-        <ItemFilter />
-        <ItemList pizzas={mocks.pizzas} />
+        <ItemFilter onFilterText={text => setFilterText(text.toLowerCase())} />
+        <ItemList
+          pizzas={mocks.pizzas.filter(
+            pizza =>
+              (filterText != '' &&
+                pizza.title.toLowerCase().includes(filterText)) ||
+              pizza.description?.toLowerCase().includes(filterText) ||
+              false,
+          )}
+        />
       </View>
     </SafeAreaView>
   );
@@ -45,7 +57,6 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   helloWorldView: {
     height: '100%',
-    justifyContent: 'center',
     alignItems: 'center',
   },
   helloWorldText: {

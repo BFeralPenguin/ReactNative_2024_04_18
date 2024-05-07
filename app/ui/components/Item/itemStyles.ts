@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 
 export const itemStyles = StyleSheet.create({
   mainContainer: {
-    maxWidth: 350,
     flexDirection: 'row',
     gap: 10,
     padding: 10,
@@ -108,16 +107,37 @@ export const itemStyles = StyleSheet.create({
 
 export const itemListStyles = StyleSheet.create({
   mainContainer: {
+    flex: 1,
     flexDirection: 'row',
   },
 });
 
 export const itemFilterStyles = StyleSheet.create({
   mainContainer: {
+    width: '100%',
+    height: 50,
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    borderColor: 'white',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    gap: 10,
+    borderColor: theme.colors.outline,
     borderWidth: 1,
+  },
+
+  input: {
+    flex: 1,
+    borderColor: theme.colors.outline,
+    borderWidth: 1,
+  },
+
+  actionsContainer: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+
+  search: {
+    ...theme.text.large,
   },
 
   modalContainer: {
