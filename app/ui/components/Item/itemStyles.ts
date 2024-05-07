@@ -140,11 +140,11 @@ export const itemFilterStyles = StyleSheet.create({
     ...theme.text.large,
   },
 
-  modalContainer: {
+  heartModalContainer: {
     justifyContent: 'flex-end',
   },
 
-  modalContent: {
+  heartModalContent: {
     height: '30%',
     justifyContent: 'center',
     alignItems: 'center',

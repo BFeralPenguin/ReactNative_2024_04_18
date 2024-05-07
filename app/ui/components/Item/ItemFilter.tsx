@@ -24,14 +24,14 @@ export function ItemFilter({
   const [modalVisible, setModalVisible] = useState(false);
   const [isInputVisible, setIsInputVisible] = useState(false);
   const [filterText, setFilterText] = useState('');
-  const [isNewModalVisible, setIsNewModalVisible] = useState(false);
+  const [isAdvancedSearchModalVisible, setIsNewModalVisible] = useState(false);
   const [isFilterByIsNew, setIsFilterByIsNew] = useState(false);
 
   function showModal(): void {
     setModalVisible(true);
   }
 
-  function closeModal(): void {
+  function closeHeartModal(): void {
     setModalVisible(false);
   }
 
@@ -44,11 +44,11 @@ export function ItemFilter({
     onFilterText && onFilterText(text);
   }
 
-  function showIsNewModal(): void {
+  function showAdvancedSearchModal(): void {
     setIsNewModalVisible(true);
   }
 
-  function closeIsNewModal(): void {
+  function closeAdvancedSearchModal(): void {
     setIsNewModalVisible(false);
     onFilterByIsNew?.(isFilterByIsNew);
   }
@@ -74,19 +74,20 @@ export function ItemFilter({
 
         {modalVisible && (
           <CustomModal
-            onClose={closeModal}
-            style={itemFilterStyles.modalContainer}>
-            <View style={itemFilterStyles.modalContent}>
-              <CustomPressable onPress={closeModal}>
-                <Text>Close Modal</Text>
+            onClose={closeHeartModal}
+            style={itemFilterStyles.heartModalContainer}>
+            <View style={itemFilterStyles.heartModalContent}>
+              <CustomPressable onPress={closeHeartModal}>
+                {/* TODO Move to strings */}
+                <Text>Close modal</Text>
               </CustomPressable>
             </View>
           </CustomModal>
         )}
 
-        {isNewModalVisible && (
+        {isAdvancedSearchModalVisible && (
           <CustomModal
-            onClose={closeIsNewModal}
+            onClose={closeAdvancedSearchModal}
             style={itemFilterStyles.isNewModalContainer}>
             <View style={itemFilterStyles.isNewModalContent}>
               <Text style={theme.text.large}>Filter</Text>
@@ -94,6 +95,7 @@ export function ItemFilter({
                 <CheckBox
                   value={isFilterByIsNew}
                   onValueChange={setIsFilterByIsNew}></CheckBox>
+                {/* TODO Move to strings */}
                 <Text>Only new</Text>
               </View>
             </View>
@@ -101,7 +103,8 @@ export function ItemFilter({
         )}
       </View>
       <View style={itemFilterStyles.advancedFilterContainer}>
-        <CustomPressable onPress={showIsNewModal}>
+        <CustomPressable onPress={showAdvancedSearchModal}>
+          {/* TODO Move to strings */}
           <Text style={theme.text.large}>Filter</Text>
         </CustomPressable>
       </View>
