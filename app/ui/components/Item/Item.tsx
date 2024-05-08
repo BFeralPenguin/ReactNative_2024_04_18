@@ -10,6 +10,7 @@ import {CustomPressable} from '../CustomPressable';
 import {itemStyles} from './itemStyles';
 
 export function Item({
+  // TODO Consider using destructuring
   pizza,
   onAddToFavorite,
   onBuy,

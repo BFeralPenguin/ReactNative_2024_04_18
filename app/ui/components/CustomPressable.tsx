@@ -11,7 +11,7 @@ export function CustomPressable({
   onPress,
   children,
 }: {
-  style?: StyleProp<ViewStyle> | undefined;
+  style?: StyleProp<ViewStyle>;
   onPress?: null | ((event: GestureResponderEvent) => void) | undefined;
   children: React.JSX.Element | React.JSX.Element[];
 }): React.JSX.Element {

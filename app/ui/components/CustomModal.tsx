@@ -1,12 +1,5 @@
-import React, {useState} from 'react';
-import {
-  Modal,
-  StyleProp,
-  StyleSheet,
-  Text,
-  View,
-  ViewStyle,
-} from 'react-native';
+import React from 'react';
+import {Modal, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 import {CustomPressable} from './CustomPressable';
 
 export function CustomModal({
@@ -14,14 +7,11 @@ export function CustomModal({
   onClose,
   children,
 }: {
-  style?: StyleProp<ViewStyle> | undefined;
+  style?: StyleProp<ViewStyle>;
   onClose: () => void;
   children: React.JSX.Element | React.JSX.Element[];
 }): React.JSX.Element {
-  const [isVisible, setIsVisible] = useState(true);
-
   function closeModal(): void {
-    setIsVisible(false);
     onClose();
   }
 
@@ -30,7 +20,7 @@ export function CustomModal({
       <Modal
         animationType="slide"
         transparent={true}
-        visible={isVisible}
+        visible={true}
         onRequestClose={closeModal}>
         <CustomPressable
           onPress={event =>
