@@ -13,6 +13,9 @@
       "@components/*": [
         "app/ui/components/*"
       ],
+      "@screens/*": [
+        "app/ui/screens/*"
+      ],
       "@theme": [
         "app/ui/theme"
       ],
