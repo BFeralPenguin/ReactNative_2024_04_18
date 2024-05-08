@@ -1,4 +1,4 @@
-export const strings = {
+export default {
   buy: 'buy',
   new: 'new',
 };

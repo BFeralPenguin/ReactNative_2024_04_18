@@ -1,3 +1,27 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@types": [
+        "app/types"
+      ],
+      "@assets": [
+        "app/assets"
+      ],
+      "@components/*": [
+        "app/ui/components/*"
+      ],
+      "@theme": [
+        "app/ui/theme"
+      ],
+      "@strings": [
+        "app/strings"
+      ],
+      "@mocks": [
+        "app/mocks"
+      ]
+    }
+  }
 }
