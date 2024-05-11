@@ -3,7 +3,7 @@ import {FlatList, View} from 'react-native';
 
 import {Pizza} from '@types';
 import {Item} from './Item';
-import {itemListStyles} from './itemStyles';
+import {itemListStyles} from './styles';
 
 export function ItemList({
   pizzas,

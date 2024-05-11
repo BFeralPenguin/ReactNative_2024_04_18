@@ -5,7 +5,7 @@ import {CustomModal} from '@components/CustomModal';
 import {CustomPressable} from '@components/CustomPressable';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AddToFavorite} from '../AddToFavorite';
-import {itemFilterStyles} from './itemStyles';
+import {itemFilterStyles} from './styles';
 import CheckBox from '@react-native-community/checkbox';
 import theme from '@theme';
 
