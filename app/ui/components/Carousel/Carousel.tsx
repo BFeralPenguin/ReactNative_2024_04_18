@@ -29,7 +29,7 @@ export function Carousel({
 }): React.JSX.Element {
   const scrollViewRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(startAt);
-  const [itemsSize, setItemsSize] = useState(0);
+  const [itemSize, setItemSize] = useState(0);
   const [nextScrollTimeout, setNextScrollTimeout] = useState<
     NodeJS.Timeout | undefined
   >(undefined);
@@ -55,9 +55,9 @@ export function Carousel({
     return () => clearTimeout(timeout);
   }, [autoScrollAfterMs, children.length, currentIndex]);
 
-  const setItemsSizeFromContentSize = useCallback(
+  const setItemSizeFromContentSize = useCallback(
     (width: number, height: number) => {
-      setItemsSize((horizontal ? width : height) / children.length);
+      setItemSize((horizontal ? width : height) / children.length);
     },
     [horizontal, children.length],
   );
@@ -65,11 +65,11 @@ export function Carousel({
   const scrollToIndex = useCallback(
     (index: number) => {
       scrollViewRef.current?.scrollTo({
-        [horizontal ? 'x' : 'y']: index * itemsSize,
+        [horizontal ? 'x' : 'y']: index * itemSize,
         animated: true,
       });
     },
-    [scrollViewRef, horizontal, itemsSize],
+    [scrollViewRef, horizontal, itemSize],
   );
 
   const scrollToIndexAndSetCurrentIndex = useCallback(
@@ -85,7 +85,7 @@ export function Carousel({
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       const newIndex = calculateIndexFromScrollEndEvent(event, {
         horizontal,
-        itemsSize,
+        itemsSize: itemSize,
         currentIndex,
         scrollToNextTriggerPercentage: scrollTriggerPercentage,
       });
@@ -99,7 +99,7 @@ export function Carousel({
     [
       // TODO FIXME Чи правильно тут і у всіх use.. передавати всі ці залежності?
       horizontal,
-      itemsSize,
+      itemSize,
       currentIndex,
       scrollTriggerPercentage,
       scrollToIndex,
@@ -124,16 +124,18 @@ export function Carousel({
           ref={scrollViewRef}
           onScrollEndDrag={onScrollEnd}
           contentContainerStyle={carouselStyles.scrollView}
-          onContentSizeChange={setItemsSizeFromContentSize}
+          onContentSizeChange={setItemSizeFromContentSize}
           showsHorizontalScrollIndicator={true}
           showsVerticalScrollIndicator={false}
           horizontal={horizontal}>
           {children}
         </ScrollView>
-        {/* TODO Limit dots row size */}
+        {/* TODO FIXME Limit dots row size */}
         <View style={carouselStyles.indexIndicatorContainer}>
           {children.map((_, i) => (
-            <CustomPressable onPress={() => scrollToIndexAndSetCurrentIndex(i)}>
+            <CustomPressable
+              key={i}
+              onPress={() => scrollToIndexAndSetCurrentIndex(i)}>
               <View
                 style={[
                   carouselStyles.indexIndicatorDot,
@@ -144,21 +146,6 @@ export function Carousel({
           ))}
         </View>
       </View>
-    </>
-  );
-}
-
-/**
- * Default carousel item wrap
- */
-export function CarouselItem({
-  children,
-}: {
-  children: React.JSX.Element;
-}): React.JSX.Element {
-  return (
-    <>
-      <View style={carouselStyles.exampleItemContainer}>{children}</View>
     </>
   );
 }

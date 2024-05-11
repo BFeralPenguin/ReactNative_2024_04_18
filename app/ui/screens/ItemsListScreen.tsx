@@ -8,7 +8,6 @@ function ItemsListScreen(): React.JSX.Element {
   const [filterText, setFilterText] = useState('');
   const [filterByIsNew, setFilterByIsNew] = useState(false);
 
-  // TODO Combine list/filter into separate component
   const getFilterPredicate = useCallback<(pizza: Pizza) => boolean>(
     pizza => {
       let isOk = true;
