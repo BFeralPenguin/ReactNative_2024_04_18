@@ -9,9 +9,8 @@ import {
   useColorScheme,
 } from 'react-native';
 
-import ItemsListScreen from '@screens/ItemsListScreen';
+import {CarouselExample} from '@components/CarouselExample';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Carousel} from '@components/Carousel';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,7 +34,7 @@ function App(): React.JSX.Element {
         ]}>
         <Text style={styles.helloWorldText}>Hello hillel</Text>
         {/* <ItemsListScreen /> */}
-        <Carousel />
+        <CarouselExample />
       </View>
     </SafeAreaView>
   );
