@@ -30,6 +30,7 @@ export function Carousel({
   const scrollViewRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(startAt);
   const [itemSize, setItemSize] = useState(0);
+  const [isDragStarted, setIsDragStarted] = useState(false);
   const [nextScrollTimeout, setNextScrollTimeout] = useState<
     NodeJS.Timeout | undefined
   >(undefined);
@@ -44,6 +45,8 @@ export function Carousel({
 
     clearTimeout(nextScrollTimeout);
 
+    if (isDragStarted) return;
+
     const timeout = setTimeout(() => {
       scrollToIndexAndSetCurrentIndex(
         currentIndex < children.length - 1 ? currentIndex + 1 : 0,
@@ -53,7 +56,7 @@ export function Carousel({
     setNextScrollTimeout(timeout);
 
     return () => clearTimeout(timeout);
-  }, [autoScrollAfterMs, children.length, currentIndex]);
+  }, [autoScrollAfterMs, children.length, currentIndex, isDragStarted]);
 
   const setItemSizeFromContentSize = useCallback(
     (width: number, height: number) => {
@@ -95,6 +98,7 @@ export function Carousel({
       if (newIndex == currentIndex) return scrollToIndex(newIndex);
 
       scrollToIndexAndSetCurrentIndex(newIndex);
+      setIsDragStarted(false);
     },
     [
       // TODO FIXME Чи правильно тут і у всіх use.. передавати всі ці залежності?
@@ -122,6 +126,7 @@ export function Carousel({
       <View style={carouselStyles.container}>
         <ScrollView
           ref={scrollViewRef}
+          onScrollBeginDrag={() => setIsDragStarted(true)}
           onScrollEndDrag={onScrollEnd}
           contentContainerStyle={carouselStyles.scrollView}
           onContentSizeChange={setItemSizeFromContentSize}
