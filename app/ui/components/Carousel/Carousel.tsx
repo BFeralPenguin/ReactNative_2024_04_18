@@ -1,15 +1,13 @@
-import React, {Ref, useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
-  Animated,
   NativeScrollEvent,
   NativeSyntheticEvent,
   ScrollView,
-  Text,
   View,
 } from 'react-native';
 
-import {carouselStyles} from './styles';
 import {CustomPressable} from '@components/CustomPressable';
+import {carouselStyles} from './styles';
 
 /**
  * All items in [children] must have the same size.
@@ -20,23 +18,42 @@ export function Carousel({
   onChange,
   scrollTriggerPercentage = 0.3,
   children,
-  // TODO
-  autoScrollAfter,
+  autoScrollAfterMs,
 }: {
   horizontal?: boolean;
   startAt?: number;
   onChange?: (newIndex: number) => void;
   scrollTriggerPercentage?: number;
   children: React.JSX.Element[];
-  autoScrollAfter?: number;
+  autoScrollAfterMs?: number;
 }): React.JSX.Element {
-  const [currentIndex, setCurrentIndex] = useState(() => startAt);
-  const [itemsSize, setItemsSize] = useState(() => 0);
   const scrollViewRef = useRef<ScrollView>(null);
+  const [currentIndex, setCurrentIndex] = useState(startAt);
+  const [itemsSize, setItemsSize] = useState(0);
+  const [nextScrollTimeout, setNextScrollTimeout] = useState<
+    NodeJS.Timeout | undefined
+  >(undefined);
 
   useEffect(() => {
     setCurrentIndex(startAt);
   }, [startAt]);
+
+  // AutoScroll countdown restarts when [currentIndex] changes
+  useEffect(() => {
+    if (!autoScrollAfterMs || autoScrollAfterMs < 0) return;
+
+    clearTimeout(nextScrollTimeout);
+
+    const timeout = setTimeout(() => {
+      scrollToIndexAndSetCurrentIndex(
+        currentIndex < children.length - 1 ? currentIndex + 1 : 0,
+      );
+    }, autoScrollAfterMs);
+
+    setNextScrollTimeout(timeout);
+
+    return () => clearTimeout(timeout);
+  }, [autoScrollAfterMs, children.length, currentIndex]);
 
   const setItemsSizeFromContentSize = useCallback(
     (width: number, height: number) => {
@@ -80,12 +97,13 @@ export function Carousel({
       scrollToIndexAndSetCurrentIndex(newIndex);
     },
     [
-      // TODO FIXME Чи правильно тут передавати всі ці параметри?
+      // TODO FIXME Чи правильно тут і у всіх use.. передавати всі ці залежності?
       horizontal,
       itemsSize,
       currentIndex,
       scrollTriggerPercentage,
       scrollToIndex,
+      // Наприклад scrollToIndexAndSetCurrentIndex вже залежить від scrollToIndex
       scrollToIndexAndSetCurrentIndex,
     ],
   );

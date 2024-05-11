@@ -7,14 +7,14 @@ export function CarouselExample(): React.JSX.Element {
   return (
     <>
       <View style={styles.carouselContainer}>
-        <Carousel horizontal={true}>
+        <Carousel horizontal={true} autoScrollAfterMs={5000}>
           {Array.from({length: 10}).map((_, i) => (
             <View style={styles.itemContainer}>
               <Image
                 key={i}
                 style={[
                   styles.itemImg,
-                  // Shortcut to make items look different and to not search for assets
+                  // TODO FIXME Shortcut to make items look different and not search for assets
                   (i & 1 && {width: 50}) || {},
                 ]}
                 source={assets.pizza}
