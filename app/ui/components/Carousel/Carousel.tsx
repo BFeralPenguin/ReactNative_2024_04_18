@@ -86,6 +86,7 @@ export function Carousel({
 
   const onScrollEnd = useCallback(
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      setIsDragStarted(false);
       const newIndex = calculateIndexFromScrollEndEvent(event, {
         horizontal,
         itemsSize: itemSize,
@@ -98,7 +99,6 @@ export function Carousel({
       if (newIndex == currentIndex) return scrollToIndex(newIndex);
 
       scrollToIndexAndSetCurrentIndex(newIndex);
-      setIsDragStarted(false);
     },
     [
       // TODO FIXME Чи правильно тут і у всіх use.. передавати всі ці залежності?
