@@ -1,4 +1,5 @@
-import theme from '@theme';
+import useTheme, {Theme} from '@theme';
+import {useMemo} from 'react';
 import {
   GestureResponderEvent,
   Pressable,
@@ -15,19 +16,31 @@ export function CustomPressable({
   onPress?: null | ((event: GestureResponderEvent) => void) | undefined;
   children: React.JSX.Element | React.JSX.Element[];
 }): React.JSX.Element {
+  const {styles} = useTheme(getStyles);
+
+  // const theme = useTheme();
+  // const styles = useMemo(() => {
+  //   console.log('CustomPressable: Use memo called');
+  //   return getStyles(theme);
+  // }, [theme]);
+
   return (
     <>
       <Pressable
         style={style}
         onPress={onPress}
-        android_ripple={{
-          color: theme.colors.secondary,
-          borderless: true,
-          radius: 10,
-          foreground: true,
-        }}>
+        android_ripple={styles.androidRipple}>
         {children}
       </Pressable>
     </>
   );
 }
+
+const getStyles = (theme: Theme) => ({
+  androidRipple: {
+    color: theme.colors.secondary,
+    borderless: true,
+    radius: 10,
+    foreground: true,
+  },
+});

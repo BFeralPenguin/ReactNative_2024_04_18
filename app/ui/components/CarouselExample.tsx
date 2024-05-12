@@ -1,9 +1,18 @@
 import assets from '@assets';
 import {Carousel} from '@components/Carousel';
-import theme from '@theme';
+import useTheme, {Theme} from '@theme';
+import {useMemo} from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 
 export function CarouselExample(): React.JSX.Element {
+  const {styles} = useTheme(getStyles);
+
+  // const theme = useTheme();
+  // const styles = useMemo(() => {
+  //   console.log('CarouselExample: Use memo called');
+  //   return getStyles(theme);
+  // }, [theme]);
+
   return (
     <>
       <View style={styles.carouselContainer}>
@@ -27,24 +36,25 @@ export function CarouselExample(): React.JSX.Element {
   );
 }
 
-const styles = StyleSheet.create({
-  carouselContainer: {
-    width: 420,
-    borderColor: theme.colors.outline,
-    borderWidth: 1,
-  },
+const getStyles = (theme: Theme) =>
+  StyleSheet.create({
+    carouselContainer: {
+      width: 420,
+      borderColor: theme.colors.outline,
+      borderWidth: 1,
+    },
 
-  itemContainer: {
-    backgroundColor: theme.colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 400,
-    height: 400,
-    margin: 10,
-  },
+    itemContainer: {
+      backgroundColor: theme.colors.primary,
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 400,
+      height: 400,
+      margin: 10,
+    },
 
-  itemImg: {
-    width: 400,
-    height: 400,
-  },
-});
+    itemImg: {
+      width: 400,
+      height: 400,
+    },
+  });

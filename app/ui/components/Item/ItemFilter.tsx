@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
-import {Button, Text, TextInput, View} from 'react-native';
+import React, {useMemo, useState} from 'react';
+import {Text, TextInput, View} from 'react-native';
 
 import {CustomModal} from '@components/CustomModal';
 import {CustomPressable} from '@components/CustomPressable';
+import CheckBox from '@react-native-community/checkbox';
+import strings from '@strings';
+import useTheme from '@theme';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AddToFavorite} from '../AddToFavorite';
-import {itemFilterStyles} from './styles';
-import CheckBox from '@react-native-community/checkbox';
-import theme from '@theme';
+import {getItemFilterStyles} from './styles';
 
 // TODO FIXME Питання чи ок НЕ передавати сюди isVisible а просто не рендерити компонент
 //  і стейт тримати всередині
@@ -21,6 +22,14 @@ export function ItemFilter({
   // onFilterFavorite?: (isFavorite: boolean) => void;
   onFilterByIsNew?: (isApply: boolean) => void;
 }): React.JSX.Element {
+  const {styles} = useTheme(getItemFilterStyles);
+
+  // const theme = useTheme();
+  // const itemFilterStyles = useMemo(() => {
+  //   console.log('ItemList: Use memo called');
+  //   return getItemFilterStyles(theme);
+  // }, [theme]);
+
   const [modalVisible, setModalVisible] = useState(false);
   const [isInputVisible, setIsInputVisible] = useState(false);
   const [filterText, setFilterText] = useState('');
@@ -55,28 +64,28 @@ export function ItemFilter({
 
   return (
     <>
-      <View style={itemFilterStyles.mainFilterContainer}>
+      <View style={styles.mainFilterContainer}>
         {isInputVisible && (
           <TextInput
-            style={itemFilterStyles.searchInput}
+            style={styles.searchInput}
             value={filterText}
             onChangeText={value => onFilterTextChange(value)}
           />
         )}
 
-        <View style={itemFilterStyles.actionsContainer}>
+        <View style={styles.actionsContainer}>
           <AddToFavorite isFavorite={modalVisible} onChange={showModal} />
 
           <CustomPressable onPress={toggleIsInputVisible}>
-            <Icon name="search" style={itemFilterStyles.searchAction} />
+            <Icon name="search" style={styles.searchAction} />
           </CustomPressable>
         </View>
 
         {modalVisible && (
           <CustomModal
             onClose={closeHeartModal}
-            style={itemFilterStyles.heartModalContainer}>
-            <View style={itemFilterStyles.heartModalContent}>
+            style={styles.heartModalContainer}>
+            <View style={styles.heartModalContent}>
               <CustomPressable onPress={closeHeartModal}>
                 {/* TODO Move to strings */}
                 <Text>Close modal</Text>
@@ -88,24 +97,22 @@ export function ItemFilter({
         {isAdvancedSearchModalVisible && (
           <CustomModal
             onClose={closeAdvancedSearchModal}
-            style={itemFilterStyles.isNewModalContainer}>
-            <View style={itemFilterStyles.isNewModalContent}>
-              <Text style={theme.text.large}>Filter</Text>
-              <View style={itemFilterStyles.isNewCheckboxContainer}>
+            style={styles.isNewModalContainer}>
+            <View style={styles.isNewModalContent}>
+              <Text style={styles.filterTextString}>{strings.filter}</Text>
+              <View style={styles.isNewCheckboxContainer}>
                 <CheckBox
                   value={isFilterByIsNew}
                   onValueChange={setIsFilterByIsNew}></CheckBox>
-                {/* TODO Move to strings */}
-                <Text>Only new</Text>
+                <Text>{strings.filterOnlyNew}</Text>
               </View>
             </View>
           </CustomModal>
         )}
       </View>
-      <View style={itemFilterStyles.advancedFilterContainer}>
+      <View style={styles.advancedFilterContainer}>
         <CustomPressable onPress={showAdvancedSearchModal}>
-          {/* TODO Move to strings */}
-          <Text style={theme.text.large}>Filter</Text>
+          <Text style={styles.filterTextString}>{strings.filter}</Text>
         </CustomPressable>
       </View>
     </>

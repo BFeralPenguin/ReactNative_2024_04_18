@@ -1,4 +1,5 @@
-import React from 'react';
+import useTheme, {Theme} from '@theme';
+import React, {useMemo} from 'react';
 import {Modal, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 import {CustomPressable} from './CustomPressable';
 
@@ -11,6 +12,14 @@ export function CustomModal({
   onClose: () => void;
   children: React.JSX.Element | React.JSX.Element[];
 }): React.JSX.Element {
+  const {styles} = useTheme(getStyles);
+
+  // const theme = useTheme();
+  // const styles = useMemo(() => {
+  //   console.log('CustomModal: Use memo called');
+  //   return getStyles(theme);
+  // }, [theme]);
+
   function closeModal(): void {
     onClose();
   }
@@ -35,9 +44,10 @@ export function CustomModal({
   );
 }
 
-const styles = StyleSheet.create({
-  modalContainer: {
-    height: '100%',
-    justifyContent: 'center',
-  },
-});
+const getStyles = (theme: Theme) =>
+  StyleSheet.create({
+    modalContainer: {
+      height: '100%',
+      justifyContent: 'center',
+    },
+  });

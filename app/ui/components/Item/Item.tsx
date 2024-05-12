@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Image, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -7,7 +7,8 @@ import strings from '@strings';
 import {Pizza} from '@types';
 import {AddToFavorite} from '../AddToFavorite';
 import {CustomPressable} from '../CustomPressable';
-import {itemStyles} from './styles';
+import {getItemStyles} from './styles';
+import useTheme from '@theme';
 
 export function Item({
   // TODO Consider using destructuring
@@ -19,37 +20,45 @@ export function Item({
   onAddToFavorite?: (value: boolean) => void;
   onBuy?: () => void;
 }): React.JSX.Element {
+  const {styles} = useTheme(getItemStyles);
+
+  // const theme = useTheme();
+  // const itemStyles = useMemo(() => {
+  //   console.log('Item: Use memo called');
+  //   return getItemStyles(theme);
+  // }, [theme]);
+
   return (
     <>
-      <View style={itemStyles.mainContainer}>
-        <View style={itemStyles.imgContainer}>
-          <Image style={itemStyles.img} source={assets.pizza} />
+      <View style={styles.mainContainer}>
+        <View style={styles.imgContainer}>
+          <Image style={styles.img} source={assets.pizza} />
           {pizza.isNew && (
-            <View style={itemStyles.imgIsNewBubbleContainer}>
-              <Text style={itemStyles.imgIsNewText}>{strings.new}</Text>
+            <View style={styles.imgIsNewBubbleContainer}>
+              <Text style={styles.imgIsNewText}>{strings.new}</Text>
             </View>
           )}
         </View>
 
-        <View style={itemStyles.infoContainer}>
-          <View style={itemStyles.titleContainer}>
-            <Text style={itemStyles.title} numberOfLines={1}>
+        <View style={styles.infoContainer}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title} numberOfLines={1}>
               {pizza.title.toUpperCase()}
             </Text>
           </View>
-          <View style={itemStyles.priceContainer}>
-            <Text style={itemStyles.priceNew}>{pizza.price}</Text>
+          <View style={styles.priceContainer}>
+            <Text style={styles.priceNew}>{pizza.price}</Text>
             {pizza.oldPrice && (
-              <Text style={itemStyles.priceOld}>{pizza.oldPrice}</Text>
+              <Text style={styles.priceOld}>{pizza.oldPrice}</Text>
             )}
           </View>
-          <View style={itemStyles.descriptionContainer}>
+          <View style={styles.descriptionContainer}>
             <Text numberOfLines={1}>{pizza.description}</Text>
           </View>
         </View>
 
-        <View style={itemStyles.actionsContainer}>
-          <View style={itemStyles.addToFavoriteContainer}>
+        <View style={styles.actionsContainer}>
+          <View style={styles.addToFavoriteContainer}>
             <AddToFavorite
               isFavorite={pizza.isFavorite}
               onChange={
@@ -58,9 +67,9 @@ export function Item({
             />
           </View>
           <CustomPressable onPress={onBuy && (_ => onBuy())}>
-            <View style={itemStyles.buyContainer}>
-              <Text style={itemStyles.buyText}>{strings.buy}</Text>
-              <Icon name="shopping-cart" style={itemStyles.buyAction}></Icon>
+            <View style={styles.buyContainer}>
+              <Text style={styles.buyText}>{strings.buy}</Text>
+              <Icon name="shopping-cart" style={styles.buyAction}></Icon>
             </View>
           </CustomPressable>
         </View>

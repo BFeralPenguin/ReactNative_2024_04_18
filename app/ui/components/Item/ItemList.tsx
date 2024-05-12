@@ -1,10 +1,17 @@
-import React, {useCallback, useState} from 'react';
-import {FlatList, RefreshControl, View} from 'react-native';
+import React, {useCallback, useMemo, useState} from 'react';
+import {
+  Alert,
+  FlatList,
+  RefreshControl,
+  View,
+  useColorScheme,
+} from 'react-native';
 
 import mocks from '@mocks';
 import {Pizza} from '@types';
 import {Item} from './Item';
-import {itemListStyles} from './styles';
+import {getItemListStyles} from './styles';
+import useTheme from '@theme';
 
 const PAGE_SIZE = 5;
 
@@ -22,6 +29,14 @@ export function ItemList({
   onAddToFavorite?: (pizza: Pizza, isFavorite: boolean) => void;
   onBuy?: (pizza: Pizza) => void;
 }): React.JSX.Element {
+  const {styles} = useTheme(getItemListStyles);
+
+  // const theme = useTheme();
+  // const itemListStyles = useMemo(() => {
+  //   console.log('ItemList: Use memo called');
+  //   return getItemListStyles(theme);
+  // }, [theme]);
+
   const [pizzasSourceIndex, setPizzasSourceIndex] = useState(0);
   const [data, setData] = useState(() =>
     pizzaSources[pizzasSourceIndex].slice(0, PAGE_SIZE),
@@ -55,9 +70,26 @@ export function ItemList({
     }, 3000);
   }, [page, isRefreshing]);
 
+  // const colorScheme = useColorScheme();
+
+  const showBuyAlert = useCallback((pizza: Pizza) => {
+    Alert.alert(
+      'Alert Title',
+      'My Alert Msg',
+      [
+        {text: 'CANCEL', onPress: () => console.log('Cancel Pressed')},
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ],
+      {
+        cancelable: true,
+      },
+    );
+    onBuy?.(pizza);
+  }, []);
+
   return (
     <>
-      <View style={itemListStyles.mainContainer}>
+      <View style={styles.mainContainer}>
         <FlatList
           data={data}
           keyExtractor={item => item.id}
@@ -68,7 +100,7 @@ export function ItemList({
                 onAddToFavorite &&
                 (isFavorite => onAddToFavorite(data.item, isFavorite))
               }
-              onBuy={onBuy && (() => onBuy(data.item))}
+              onBuy={() => showBuyAlert(data.item)}
             />
           )}
           refreshControl={
