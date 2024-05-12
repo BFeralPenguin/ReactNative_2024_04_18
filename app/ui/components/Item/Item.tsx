@@ -7,7 +7,7 @@ import strings from '@strings';
 import {Pizza} from '@types';
 import {AddToFavorite} from '../AddToFavorite';
 import {CustomPressable} from '../CustomPressable';
-import {itemStyles} from './itemStyles';
+import {itemStyles} from './styles';
 
 export function Item({
   // TODO Consider using destructuring
