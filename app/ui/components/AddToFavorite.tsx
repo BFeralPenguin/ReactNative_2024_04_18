@@ -1,4 +1,4 @@
-import theme from '@theme';
+import {Theme, useStyles} from '@theme';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -11,6 +11,8 @@ export function AddToFavorite({
   isFavorite: boolean;
   onChange?: () => void;
 }): React.JSX.Element {
+  const {styles} = useStyles(getStyles);
+
   return (
     <>
       <CustomPressable onPress={onChange && (_ => onChange())}>
@@ -28,14 +30,15 @@ export function AddToFavorite({
   );
 }
 
-const styles = StyleSheet.create({
-  addToFavoriteAction: {
-    ...theme.text.large,
-  },
-  addToFavoriteIsFavorite: {
-    color: theme.colors.red,
-  },
-  addToFavoriteIsNotFavorite: {
-    color: theme.colors.secondary,
-  },
-});
+const getStyles = (theme: Theme) =>
+  StyleSheet.create({
+    addToFavoriteAction: {
+      ...theme.text.large,
+    },
+    addToFavoriteIsFavorite: {
+      color: theme.colors.red,
+    },
+    addToFavoriteIsNotFavorite: {
+      color: theme.colors.secondary,
+    },
+  });

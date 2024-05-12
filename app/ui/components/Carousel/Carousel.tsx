@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 
 import {CustomPressable} from '@components/CustomPressable';
-import {carouselStyles} from './styles';
+import {getCarouselStyles} from './styles';
+import {useStyles} from '@theme';
 
 /**
  * All items in [children] must have the same size.
@@ -27,6 +28,8 @@ export function Carousel({
   children: React.JSX.Element[];
   autoScrollAfterMs?: number;
 }): React.JSX.Element {
+  const {styles} = useStyles(getCarouselStyles);
+
   const scrollViewRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(startAt);
   const [itemSize, setItemSize] = useState(0);
@@ -123,12 +126,12 @@ export function Carousel({
   // і ділити на к-сть айтемів
   return (
     <>
-      <View style={carouselStyles.container}>
+      <View style={styles.container}>
         <ScrollView
           ref={scrollViewRef}
           onScrollBeginDrag={() => setIsDragStarted(true)}
           onScrollEndDrag={onScrollEnd}
-          contentContainerStyle={carouselStyles.scrollView}
+          contentContainerStyle={styles.scrollView}
           onContentSizeChange={setItemSizeFromContentSize}
           showsHorizontalScrollIndicator={true}
           showsVerticalScrollIndicator={false}
@@ -136,15 +139,15 @@ export function Carousel({
           {children}
         </ScrollView>
         {/* TODO FIXME Limit dots row size */}
-        <View style={carouselStyles.indexIndicatorContainer}>
+        <View style={styles.indexIndicatorContainer}>
           {children.map((_, i) => (
             <CustomPressable
               key={i}
               onPress={() => scrollToIndexAndSetCurrentIndex(i)}>
               <View
                 style={[
-                  carouselStyles.indexIndicatorDot,
-                  i === currentIndex && carouselStyles.indexIndicatorDotCurrent,
+                  styles.indexIndicatorDot,
+                  i === currentIndex && styles.indexIndicatorDotCurrent,
                 ]}
               />
             </CustomPressable>
