@@ -83,6 +83,10 @@ function ContactUs() {
           <Text style={theme.text.small}>{tel}</Text>
         </CustomPressable>
 
+        <CustomPressable onPress={() => Linking.openURL(`sms:${tel}`)}>
+          <Text style={theme.text.small}>SMS</Text>
+        </CustomPressable>
+
         <CustomPressable onPress={() => Linking.openURL(web)}>
           <Text style={theme.text.small}>{web}</Text>
         </CustomPressable>
