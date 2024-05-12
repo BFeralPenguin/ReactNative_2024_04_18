@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
   Platform,
   SafeAreaView,
@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import ItemsListScreen from '@screens/ItemsListScreen';
-import {Theme, ThemeProvider, useStyles, useTheme} from '@theme';
+import {Theme, ThemeProvider, useStyles} from '@theme';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 function App(): React.JSX.Element {
@@ -21,13 +21,7 @@ function App(): React.JSX.Element {
 }
 
 function _App(): React.JSX.Element {
-  const {
-    theme: {isDark},
-  } = useTheme();
   const {theme, styles} = useStyles(getStyles);
-
-  console.warn(isDark);
-  console.warn(theme.isDark);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -68,36 +62,3 @@ const getStyles = (theme: Theme) =>
   });
 
 export default App;
-
-function TestThemeComponent() {
-  const {styles} = useStyles(getTestStyles);
-  // const theme = useTheme();
-  // const styles = useMemo(() => {
-  //   console.log('asdnasdkn');
-  //   return getTestStyles(theme);
-  // }, [theme]);
-
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      console.log('Set count');
-      setCount(prev => (prev += 1));
-    }, 1000);
-    return () => clearInterval(interval);
-  });
-
-  return (
-    <View style={styles.container}>
-      <Text>{count}</Text>
-    </View>
-  );
-}
-
-const getTestStyles = (theme: Theme) =>
-  StyleSheet.create({
-    container: {
-      borderWidth: 1,
-      color: theme.colors.primary,
-    },
-  });

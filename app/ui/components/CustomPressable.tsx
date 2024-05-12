@@ -17,12 +17,6 @@ export function CustomPressable({
 }): React.JSX.Element {
   const {styles} = useStyles(getStyles);
 
-  // const theme = useTheme();
-  // const styles = useMemo(() => {
-  //   console.log('CustomPressable: Use memo called');
-  //   return getStyles(theme);
-  // }, [theme]);
-
   return (
     <>
       <Pressable

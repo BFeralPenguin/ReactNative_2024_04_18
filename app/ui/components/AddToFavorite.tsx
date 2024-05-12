@@ -12,12 +12,6 @@ export function AddToFavorite({
   onChange?: () => void;
 }): React.JSX.Element {
   const {styles} = useStyles(getStyles);
-  // const theme = useTheme(getStyles);
-
-  // const styles = useMemo(() => {
-  //   console.log('AddToFavorite: Use memo called');
-  //   return getStyles(theme);
-  // }, [theme]);
 
   return (
     <>

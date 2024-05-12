@@ -6,12 +6,6 @@ import {Image, StyleSheet, View} from 'react-native';
 export function CarouselExample(): React.JSX.Element {
   const {styles} = useStyles(getStyles);
 
-  // const theme = useTheme();
-  // const styles = useMemo(() => {
-  //   console.log('CarouselExample: Use memo called');
-  //   return getStyles(theme);
-  // }, [theme]);
-
   return (
     <>
       <View style={styles.carouselContainer}>

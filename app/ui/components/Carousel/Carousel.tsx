@@ -30,12 +30,6 @@ export function Carousel({
 }): React.JSX.Element {
   const {styles} = useStyles(getCarouselStyles);
 
-  // const theme = useTheme();
-  // const carouselStyles = useMemo(() => {
-  //   console.log('Carousel: Use memo called');
-  //   return getCarouselStyles(theme);
-  // }, [theme]);
-
   const scrollViewRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(startAt);
   const [itemSize, setItemSize] = useState(0);

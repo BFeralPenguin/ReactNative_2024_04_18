@@ -3,4 +3,6 @@ export default {
   new: 'new',
   filter: 'Filter',
   filterOnlyNew: 'Only new',
+  useSystemColorScheme: 'Use system color scheme',
+  useDarkScheme: 'Use dark theme',
 };

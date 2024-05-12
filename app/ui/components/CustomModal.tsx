@@ -14,12 +14,6 @@ export function CustomModal({
 }): React.JSX.Element {
   const {styles} = useStyles(getStyles);
 
-  // const theme = useTheme();
-  // const styles = useMemo(() => {
-  //   console.log('CustomModal: Use memo called');
-  //   return getStyles(theme);
-  // }, [theme]);
-
   function closeModal(): void {
     onClose();
   }

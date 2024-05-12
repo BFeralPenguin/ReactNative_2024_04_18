@@ -67,13 +67,18 @@ export const getItemStyles = (theme: Theme) =>
       gap: 10,
     },
     priceNew: {
+      ...theme.text.medium,
       fontWeight: 'bold',
     },
     priceOld: {
+      ...theme.text.medium,
       textDecorationLine: 'line-through',
     },
 
     descriptionContainer: {},
+    description: {
+      ...theme.text.medium,
+    },
 
     actionsContainer: {
       justifyContent: 'space-between',
@@ -179,5 +184,9 @@ export const getItemFilterStyles = (theme: Theme) =>
 
     filterTextString: {
       ...theme.text.large,
+    },
+
+    filterOnlyNewText: {
+      ...theme.text.medium,
     },
   });

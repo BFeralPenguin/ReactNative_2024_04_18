@@ -22,12 +22,6 @@ export function Item({
 }): React.JSX.Element {
   const {styles} = useStyles(getItemStyles);
 
-  // const theme = useTheme();
-  // const itemStyles = useMemo(() => {
-  //   console.log('Item: Use memo called');
-  //   return getItemStyles(theme);
-  // }, [theme]);
-
   return (
     <>
       <View style={styles.mainContainer}>
@@ -53,7 +47,7 @@ export function Item({
             )}
           </View>
           <View style={styles.descriptionContainer}>
-            <Text numberOfLines={1}>{pizza.description}</Text>
+            <Text style={styles.description} numberOfLines={1}>{pizza.description}</Text>
           </View>
         </View>
 

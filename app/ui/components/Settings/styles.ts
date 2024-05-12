@@ -7,6 +7,9 @@ export const getSettingStyles = (theme: Theme) =>
     settingContainer: {
       flexDirection: 'row',
     },
-    useSystemColorSchemeSwitch: {},
+    switch: {},
+    settingLabel: {
+      ...theme.text.medium,
+    },
     useDarkModeSwitch: {},
   });

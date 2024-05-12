@@ -1,43 +1,42 @@
 import React from 'react';
-import {Switch, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 
+import {CustomSwitch} from '@components/CustomSwitch';
+import strings from '@strings';
 import {useStyles} from '@theme';
 import {getSettingStyles} from './styles';
 
 export function Settings(): React.JSX.Element {
   const {
     styles,
+    theme,
     userColorScheme,
     setUserColorScheme,
     useSystemColorScheme,
     setUseSystemColorScheme,
   } = useStyles(getSettingStyles);
 
-  // const theme = useTheme();
-  // const itemStyles = useMemo(() => {
-  //   console.log('Item: Use memo called');
-  //   return getItemStyles(theme);
-  // }, [theme]);
-
   return (
     <>
       <View style={styles.container}>
         <View style={styles.settingContainer}>
-          <Switch
+          <CustomSwitch
             value={useSystemColorScheme}
             onChange={_ => setUseSystemColorScheme(!useSystemColorScheme)}
           />
-          <Text>Use system theme</Text>
+          <Text style={styles.settingLabel}>
+            {strings.useSystemColorScheme}
+          </Text>
         </View>
         <View style={[styles.settingContainer]}>
-          <Switch
+          <CustomSwitch
             disabled={useSystemColorScheme}
             value={userColorScheme === 'dark'}
             onChange={_ =>
               setUserColorScheme(userColorScheme === 'light' ? 'dark' : 'light')
             }
           />
-          <Text>Use dart theme</Text>
+          <Text style={styles.settingLabel}>{strings.useDarkScheme}</Text>
         </View>
       </View>
     </>

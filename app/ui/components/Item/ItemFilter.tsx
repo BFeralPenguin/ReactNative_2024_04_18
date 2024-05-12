@@ -1,18 +1,16 @@
 import React, {useState} from 'react';
 import {Text, TextInput, View} from 'react-native';
 
+import {CustomCheckBox} from '@components/CustomCheckBox';
 import {CustomModal} from '@components/CustomModal';
 import {CustomPressable} from '@components/CustomPressable';
 import {Settings} from '@components/Settings';
-import CheckBox from '@react-native-community/checkbox';
 import strings from '@strings';
 import {useStyles} from '@theme';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AddToFavorite} from '../AddToFavorite';
 import {getItemFilterStyles} from './styles';
 
-// TODO FIXME Питання чи ок НЕ передавати сюди isVisible а просто не рендерити компонент
-//  і стейт тримати всередині
 export function ItemFilter({
   onFilterText,
   // onFilterFavorite,
@@ -24,12 +22,6 @@ export function ItemFilter({
   onFilterByIsNew?: (isApply: boolean) => void;
 }): React.JSX.Element {
   const {styles} = useStyles(getItemFilterStyles);
-
-  // const theme = useTheme();
-  // const itemFilterStyles = useMemo(() => {
-  //   console.log('ItemList: Use memo called');
-  //   return getItemFilterStyles(theme);
-  // }, [theme]);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [isInputVisible, setIsInputVisible] = useState(false);
@@ -102,10 +94,13 @@ export function ItemFilter({
             <View style={styles.isNewModalContent}>
               <Text style={styles.filterTextString}>{strings.filter}</Text>
               <View style={styles.isNewCheckboxContainer}>
-                <CheckBox
+                <CustomCheckBox
                   value={isFilterByIsNew}
-                  onValueChange={setIsFilterByIsNew}></CheckBox>
-                <Text>{strings.filterOnlyNew}</Text>
+                  onChanged={setIsFilterByIsNew}
+                />
+                <Text style={styles.filterOnlyNewText}>
+                  {strings.filterOnlyNew}
+                </Text>
               </View>
               <View>
                 <Settings />
