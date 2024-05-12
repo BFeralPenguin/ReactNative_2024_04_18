@@ -1,17 +1,11 @@
-import React, {useCallback, useMemo, useState} from 'react';
-import {
-  Alert,
-  FlatList,
-  RefreshControl,
-  View,
-  useColorScheme,
-} from 'react-native';
+import React, {useCallback, useState} from 'react';
+import {Alert, FlatList, RefreshControl, View} from 'react-native';
 
 import mocks from '@mocks';
+import {useStyles} from '@theme';
 import {Pizza} from '@types';
 import {Item} from './Item';
 import {getItemListStyles} from './styles';
-import useTheme from '@theme';
 
 const PAGE_SIZE = 5;
 
@@ -29,7 +23,7 @@ export function ItemList({
   onAddToFavorite?: (pizza: Pizza, isFavorite: boolean) => void;
   onBuy?: (pizza: Pizza) => void;
 }): React.JSX.Element {
-  const {styles} = useTheme(getItemListStyles);
+  const {styles} = useStyles(getItemListStyles);
 
   // const theme = useTheme();
   // const itemListStyles = useMemo(() => {

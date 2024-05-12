@@ -1,5 +1,4 @@
-import useTheme, {Theme} from '@theme';
-import {useMemo} from 'react';
+import {Theme, useStyles} from '@theme';
 import {
   GestureResponderEvent,
   Pressable,
@@ -16,7 +15,7 @@ export function CustomPressable({
   onPress?: null | ((event: GestureResponderEvent) => void) | undefined;
   children: React.JSX.Element | React.JSX.Element[];
 }): React.JSX.Element {
-  const {styles} = useTheme(getStyles);
+  const {styles} = useStyles(getStyles);
 
   // const theme = useTheme();
   // const styles = useMemo(() => {

@@ -1,14 +1,14 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {Image, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import assets from '@assets';
 import strings from '@strings';
+import {useStyles} from '@theme';
 import {Pizza} from '@types';
 import {AddToFavorite} from '../AddToFavorite';
 import {CustomPressable} from '../CustomPressable';
 import {getItemStyles} from './styles';
-import useTheme from '@theme';
 
 export function Item({
   // TODO Consider using destructuring
@@ -20,7 +20,7 @@ export function Item({
   onAddToFavorite?: (value: boolean) => void;
   onBuy?: () => void;
 }): React.JSX.Element {
-  const {styles} = useTheme(getItemStyles);
+  const {styles} = useStyles(getItemStyles);
 
   // const theme = useTheme();
   // const itemStyles = useMemo(() => {

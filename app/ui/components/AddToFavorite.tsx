@@ -1,9 +1,8 @@
-import theme, {Theme} from '@theme';
-import React, {useMemo} from 'react';
+import {Theme, useStyles} from '@theme';
+import React from 'react';
 import {StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {CustomPressable} from './CustomPressable';
-import useTheme from '@theme';
 
 export function AddToFavorite({
   isFavorite,
@@ -12,7 +11,7 @@ export function AddToFavorite({
   isFavorite: boolean;
   onChange?: () => void;
 }): React.JSX.Element {
-  const {styles} = useTheme(getStyles);
+  const {styles} = useStyles(getStyles);
   // const theme = useTheme(getStyles);
 
   // const styles = useMemo(() => {

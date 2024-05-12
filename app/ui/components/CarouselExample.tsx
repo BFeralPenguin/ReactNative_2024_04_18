@@ -1,11 +1,10 @@
 import assets from '@assets';
 import {Carousel} from '@components/Carousel';
-import useTheme, {Theme} from '@theme';
-import {useMemo} from 'react';
+import {Theme, useStyles} from '@theme';
 import {Image, StyleSheet, View} from 'react-native';
 
 export function CarouselExample(): React.JSX.Element {
-  const {styles} = useTheme(getStyles);
+  const {styles} = useStyles(getStyles);
 
   // const theme = useTheme();
   // const styles = useMemo(() => {

@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 
 import {CustomPressable} from '@components/CustomPressable';
-import useTheme from '@theme';
 import {getCarouselStyles} from './styles';
+import {useStyles} from '@theme';
 
 /**
  * All items in [children] must have the same size.
@@ -28,7 +28,7 @@ export function Carousel({
   children: React.JSX.Element[];
   autoScrollAfterMs?: number;
 }): React.JSX.Element {
-  const {styles} = useTheme(getCarouselStyles);
+  const {styles} = useStyles(getCarouselStyles);
 
   // const theme = useTheme();
   // const carouselStyles = useMemo(() => {

@@ -1,11 +1,12 @@
-import React, {useMemo, useState} from 'react';
+import React, {useState} from 'react';
 import {Text, TextInput, View} from 'react-native';
 
 import {CustomModal} from '@components/CustomModal';
 import {CustomPressable} from '@components/CustomPressable';
+import {Settings} from '@components/Settings';
 import CheckBox from '@react-native-community/checkbox';
 import strings from '@strings';
-import useTheme from '@theme';
+import {useStyles} from '@theme';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AddToFavorite} from '../AddToFavorite';
 import {getItemFilterStyles} from './styles';
@@ -22,7 +23,7 @@ export function ItemFilter({
   // onFilterFavorite?: (isFavorite: boolean) => void;
   onFilterByIsNew?: (isApply: boolean) => void;
 }): React.JSX.Element {
-  const {styles} = useTheme(getItemFilterStyles);
+  const {styles} = useStyles(getItemFilterStyles);
 
   // const theme = useTheme();
   // const itemFilterStyles = useMemo(() => {
@@ -105,6 +106,9 @@ export function ItemFilter({
                   value={isFilterByIsNew}
                   onValueChange={setIsFilterByIsNew}></CheckBox>
                 <Text>{strings.filterOnlyNew}</Text>
+              </View>
+              <View>
+                <Settings />
               </View>
             </View>
           </CustomModal>
