@@ -1,8 +1,6 @@
 import {
-  Dispatch,
   ReactElement,
   ReactNode,
-  SetStateAction,
   createContext,
   useContext,
   useEffect,
@@ -10,6 +8,7 @@ import {
   useState,
 } from 'react';
 import {
+  Appearance,
   ColorSchemeName,
   StyleSheet,
   TextStyle,
@@ -36,9 +35,9 @@ export type Theme = {
 type ThemeContextType = {
   theme: Theme;
   useSystemColorScheme: boolean;
-  setUseSystemColorScheme: Dispatch<SetStateAction<boolean>>;
+  setUseSystemColorScheme: (value: boolean) => void;
   userColorScheme: ColorSchemeName;
-  setUserColorScheme: Dispatch<SetStateAction<ColorSchemeName>>;
+  setUserColorScheme: (value: ColorSchemeName) => void;
 };
 
 const colors: {
@@ -110,36 +109,30 @@ const text: {
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const ThemeProvider = (props: {children: ReactNode}): ReactElement => {
-  const systemColorScheme = useColorScheme();
-  const [useSystemColorScheme, setUseSystemColorScheme] = useState(true);
+  const currentColorScheme = useColorScheme();
+
   const [userColorScheme, setUserColorScheme] =
     useState<ColorSchemeName>('light');
-  const [theme, setTheme] = useState(getTheme({systemColorScheme}));
 
-  function getTheme({
-    systemColorScheme = 'light',
-  }: {
-    systemColorScheme?: ColorSchemeName;
-  }): Theme {
-    const isDark =
-      (useSystemColorScheme ? systemColorScheme : userColorScheme) === 'dark';
+  const [useSystemColorScheme, setUseSystemColorScheme] = useState(true);
 
-    return {
-      isDark,
-      colors: isDark ? colors['dark'] : colors['light'],
-      text: isDark ? text['dark'] : text['light'],
-    };
-  }
+  const [theme, setTheme] = useState(() => getTheme());
 
+  // Recalculate current color scheme
+  useEffect(() => {
+    Appearance.setColorScheme(useSystemColorScheme ? null : userColorScheme);
+  }, [userColorScheme, useSystemColorScheme]);
+
+  // Recalculate theme when current scheme changes
   useEffect(() => {
     // TODO CLeanup
-    // console.log('ThemeProvider useEffect', {
-    //   systemColorScheme,
-    //   useSystemColorScheme,
-    //   userColorScheme,
-    // });
-    setTheme(getTheme({systemColorScheme}));
-  }, [systemColorScheme, userColorScheme, useSystemColorScheme]);
+    console.log('ThemeProvider currentColorScheme changed', {
+      useSystemColorScheme,
+      userColorScheme,
+      currentColorScheme,
+    });
+    setTheme(getTheme());
+  }, [currentColorScheme]);
 
   return (
     <ThemeContext.Provider
@@ -153,6 +146,15 @@ export const ThemeProvider = (props: {children: ReactNode}): ReactElement => {
       }}
     />
   );
+
+  function getTheme(): Theme {
+    const isDark = Appearance.getColorScheme() === 'dark';
+    return {
+      isDark,
+      colors: isDark ? colors['dark'] : colors['light'],
+      text: isDark ? text['dark'] : text['light'],
+    };
+  }
 };
 
 export const useTheme = (): ThemeContextType => {

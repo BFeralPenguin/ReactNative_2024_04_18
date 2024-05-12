@@ -33,7 +33,11 @@ export function Settings(): React.JSX.Element {
             disabled={useSystemColorScheme}
             value={userColorScheme === 'dark'}
             onChange={_ =>
-              setUserColorScheme(userColorScheme === 'light' ? 'dark' : 'light')
+              setUserColorScheme(
+                userColorScheme === null || userColorScheme === 'light'
+                  ? 'dark'
+                  : 'light',
+              )
             }
           />
           <Text style={styles.settingLabel}>{strings.useDarkScheme}</Text>

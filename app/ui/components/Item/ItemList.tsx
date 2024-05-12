@@ -25,12 +25,6 @@ export function ItemList({
 }): React.JSX.Element {
   const {styles} = useStyles(getItemListStyles);
 
-  // const theme = useTheme();
-  // const itemListStyles = useMemo(() => {
-  //   console.log('ItemList: Use memo called');
-  //   return getItemListStyles(theme);
-  // }, [theme]);
-
   const [pizzasSourceIndex, setPizzasSourceIndex] = useState(0);
   const [data, setData] = useState(() =>
     pizzaSources[pizzasSourceIndex].slice(0, PAGE_SIZE),
@@ -64,12 +58,10 @@ export function ItemList({
     }, 3000);
   }, [page, isRefreshing]);
 
-  // const colorScheme = useColorScheme();
-
   const showBuyAlert = useCallback((pizza: Pizza) => {
     Alert.alert(
       'Alert Title',
-      'My Alert Msg',
+      'Alert Msg',
       [
         {text: 'CANCEL', onPress: () => console.log('Cancel Pressed')},
         {text: 'OK', onPress: () => console.log('OK Pressed')},

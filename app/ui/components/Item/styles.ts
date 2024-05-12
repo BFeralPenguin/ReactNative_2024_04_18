@@ -104,6 +104,7 @@ export const getItemStyles = (theme: Theme) =>
       gap: 5,
     },
     buyText: {
+      ...theme.text.medium,
       textTransform: 'capitalize',
     },
     buyAction: {
