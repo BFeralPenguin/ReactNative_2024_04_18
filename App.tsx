@@ -36,7 +36,6 @@ function _App(): React.JSX.Element {
             backgroundColor: theme.isDark ? Colors.black : Colors.white,
           },
         ]}>
-        <Text style={styles.helloWorldText}>Hello hillel</Text>
         {/* <TestThemeComponent /> */}
         <ItemsListScreen />
         {/* <CarouselExample /> */}
