@@ -84,9 +84,10 @@ export const getItemStyles = (theme: Theme) =>
       justifyContent: 'space-between',
     },
 
-    addToFavoriteContainer: {
+    topActionsContainer: {
       flexDirection: 'row',
       justifyContent: 'flex-end',
+      gap: 10,
     },
     addToFavoriteAction: {
       ...theme.text.large,

@@ -102,9 +102,6 @@ export function ItemFilter({
                   {strings.filterOnlyNew}
                 </Text>
               </View>
-              <View>
-                <Settings />
-              </View>
             </View>
           </CustomModal>
         )}

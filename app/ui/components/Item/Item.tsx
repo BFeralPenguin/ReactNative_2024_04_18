@@ -9,6 +9,7 @@ import {Pizza} from '@types';
 import {AddToFavorite} from '../AddToFavorite';
 import {CustomPressable} from '../CustomPressable';
 import {getItemStyles} from './styles';
+import {Share} from '@components/Share';
 
 export function Item({
   // TODO Consider using destructuring
@@ -47,12 +48,15 @@ export function Item({
             )}
           </View>
           <View style={styles.descriptionContainer}>
-            <Text style={styles.description} numberOfLines={1}>{pizza.description}</Text>
+            <Text style={styles.description} numberOfLines={1}>
+              {pizza.description}
+            </Text>
           </View>
         </View>
 
         <View style={styles.actionsContainer}>
-          <View style={styles.addToFavoriteContainer}>
+          <View style={styles.topActionsContainer}>
+            <Share message={pizza.title} />
             <AddToFavorite
               isFavorite={pizza.isFavorite}
               onChange={
@@ -60,6 +64,7 @@ export function Item({
               }
             />
           </View>
+
           <CustomPressable onPress={onBuy && (_ => onBuy())}>
             <View style={styles.buyContainer}>
               <Text style={styles.buyText}>{strings.buy}</Text>
