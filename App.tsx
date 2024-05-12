@@ -9,7 +9,7 @@ import {
   useColorScheme,
 } from 'react-native';
 
-import {CarouselExample} from '@components/CarouselExample';
+import ItemsListScreen from '@screens/ItemsListScreen';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 function App(): React.JSX.Element {
@@ -33,8 +33,8 @@ function App(): React.JSX.Element {
           },
         ]}>
         <Text style={styles.helloWorldText}>Hello hillel</Text>
-        {/* <ItemsListScreen /> */}
-        <CarouselExample />
+        <ItemsListScreen />
+        {/* <CarouselExample /> */}
       </View>
     </SafeAreaView>
   );
